@@ -7,18 +7,17 @@
 
 package robotlegs.extensions.starlingViewMap
 {
-	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
-	import robotlegs.bender.framework.api.IContext;
-	import robotlegs.bender.framework.api.IExtension;
-	import robotlegs.bender.framework.impl.UID;
-	import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
-	import robotlegs.extensions.starlingViewMap.impl.StarlingViewMap;
-	import robotlegs.bender.extensions.matching.instanceOfType;
-	
-	import starling.core.Starling;
 
+import robotlegs.bender.extensions.matching.instanceOfType;
+import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
+import robotlegs.bender.framework.api.IContext;
+import robotlegs.bender.framework.api.IExtension;
+import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
+import robotlegs.extensions.starlingViewMap.impl.StarlingViewMap;
 
-	/**
+import starling.core.Starling;
+
+/**
 	 * Basic StarlingView Extension.
 	 * 
 	 * @author jamieowen
@@ -36,8 +35,6 @@ package robotlegs.extensions.starlingViewMap
 		/*============================================================================*/
 		/* Private Properties                                                         */
 		/*============================================================================*/
-		
-		private var _uid:String = UID.create( StarlingViewMapExtension );
 		
 		private var _context:IContext;
 		
@@ -59,7 +56,7 @@ package robotlegs.extensions.starlingViewMap
 			_context = context;
 			_context.addConfigHandler(instanceOfType(Starling), handleStarling);
 			
-			_context.injector.map( IStarlingViewMap).toSingleton(StarlingViewMap);
+			_context.injector.map(IStarlingViewMap).toSingleton(StarlingViewMap);
 		}
 	
 		/*============================================================================*/
@@ -69,7 +66,7 @@ package robotlegs.extensions.starlingViewMap
 		private function handleStarling( starling:Starling ):void
 		{
 			_context.injector.map(Starling).toValue(starling);
-			
+
 			// init the IStarlingViewMap now we have the reference to Starling
 			_context.injector.getInstance(IStarlingViewMap);
 		}		

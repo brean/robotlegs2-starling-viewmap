@@ -7,15 +7,16 @@
 
 package robotlegs.extensions.starlingViewMap.impl
 {
-	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
-	import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
 
-	import starling.core.Starling;
-	import starling.display.DisplayObject;
-	import starling.display.DisplayObjectContainer;
-	import starling.events.Event;
+import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
+import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
 
-	/**
+import starling.core.Starling;
+import starling.display.DisplayObject;
+import starling.display.DisplayObjectContainer;
+import starling.events.Event;
+
+/**
 	 * 
 	 * StarlingViewMap Impl
 	 * 

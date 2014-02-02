@@ -6,43 +6,39 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'org.gradlefx', name: 'gradlefx', version: '0.6'
+        classpath group: 'org.gradlefx', name: 'gradlefx', version: '0.8.1'
     }
 }
 
 
-
+version = '1.0.1'
 type = 'swc'
+frameworkLinkage = 'none'
+playerVersion = '11.1'
+
+output = 'robotlegs2-starling-viewmap'
 
 repositories {
-	add(new org.apache.ivy.plugins.resolver.URLResolver()) {
-		name = 'Apache'
-		addArtifactPattern 'http://apache.cu.be/flex/[revision]/binaries/[module]-[revision]-bin.[ext]'
-	}
+    ivy {
+        name = 'Apache'
+        artifactPattern 'http://apache.cu.be/flex/[revision]/binaries/[module]-[revision]-bin.[ext]'
+    }
 }
 
+
 dependencies {
-    flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'zip'
+    flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.11.0', ext: 'zip'
     external files('libs/starling-1.4.1.swc')
     external files('libs/robotlegs-framework-v2.1.0.swc')
     external files('libs/Swiftsuspenders-v2.0.0rc3.swc')
 }
 
 sdkAutoInstall {
-	showPrompts	= false
+    showPrompts = false
 }
 
-additionalCompilerOptions = [
-  '-target-player=11.1',
-]
 
-srcDirs = ['src/']
-
-buildDir = 'bin'
-
-output = 'robotlegs2-starling-viewmap'
-
-uploadArchives {
+/*uploadArchives {
     repositories {
         mavenDeployer {
             repository(url: repoUrl) {
@@ -53,4 +49,5 @@ uploadArchives {
             pom.groupId = "com.github"
         }
     }
-}
+}*/
+

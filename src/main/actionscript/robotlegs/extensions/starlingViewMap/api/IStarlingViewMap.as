@@ -7,9 +7,10 @@
 
 package robotlegs.extensions.starlingViewMap.api
 {
-	import starling.display.DisplayObject;
-	
-	/**
+
+import starling.display.DisplayObject;
+
+/**
 	 * @author jamieowen
 	 */
 	public interface IStarlingViewMap
