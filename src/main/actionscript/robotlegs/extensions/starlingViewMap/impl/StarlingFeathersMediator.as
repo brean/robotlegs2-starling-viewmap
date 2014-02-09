@@ -11,8 +11,11 @@ public class StarlingFeathersMediator extends StarlingMediator {
     override public function set viewComponent(view:Object):void {
         super.viewComponent = view;
 
-        EventDispatcher(viewComponent).addEventListener("creationComplete", creationCompleteHandler);
+        if (view) {
+            EventDispatcher(viewComponent).addEventListener("creationComplete", creationCompleteHandler);
+        }
     }
+
 
     private function creationCompleteHandler(event:Event):void {
         EventDispatcher(viewComponent).removeEventListener("creationComplete", creationCompleteHandler);
@@ -21,6 +24,7 @@ public class StarlingFeathersMediator extends StarlingMediator {
 
         initializeComplete();
     }
+
 
     public function initializeComplete():void {
 
